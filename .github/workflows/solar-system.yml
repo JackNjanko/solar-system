@@ -31,3 +31,10 @@ jobs:
       - name: Unit Testing
         run: npm test
 
+      - name: Debug Environment
+        run: |
+          echo "Node.js Version: $(node -v)"
+          echo "NPM Version: $(npm -v)"
+          echo "MongoDB URI: $(echo $MONGO_URI | cut -d'@' -f2)" # Hides credentials
+        env:
+          MONGODB_URI: ${{ secrets.MONGO_URI }}
