@@ -1,10 +1,16 @@
 name: Solar system Workflow
+
 on:
   workflow_dispatch: 
   push:
     branches:
       - main
       - 'feature/*'
+
+env:
+  MONGO_URI: mongodb+srv://vignus44:<db_password>@democluster.ctnxm.mongodb.net/?retryWrites=true&w=majority&appName=DemoCluster
+  MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
+  MONGO_PASSWORD: ${{ vars.MONGO_PASSWORD }}
 
 jobs:
   unit-testing:
