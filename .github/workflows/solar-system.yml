@@ -9,8 +9,6 @@ on:
 
 env:
   MONGO_URI: 'mongodb+srv://superuser:SuperPassword@cluster0.ctnxm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
-  MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
-  MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
 
 jobs:
   unit-testing:
