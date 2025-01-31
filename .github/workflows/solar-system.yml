@@ -8,7 +8,7 @@ on:
       - 'feature/*'
 
 env:
-  MONGO_URI: 'mongodb+srv://vignus44:Adidas44@@democluster.ctnxm.mongodb.net/?retryWrites=true&w=majority&appName=DemoCluster'
+  MONGO_URI: ${{ secrets.MONGODB_URI }}
   MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
   MONGO_PASSWORD: ${{ vars.MONGO_PASSWORD }}
 
