@@ -7,6 +7,11 @@ on:
       - main
       - 'feature/*'
 
+env:
+  MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
+  MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
+  MONGO_URI: ${{ secrets.MONGO_URI }}
+
 jobs:
   unit-testing:
     name: Run Tests
@@ -19,15 +24,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-
-      - name: Debug Environment
-        run: |
-            echo "Node.js Version: $(node -v)"
-            echo "NPM Version: $(npm -v)"
-            echo "MongoDB URI: $(echo $MONGO_URI | cut -d'@' -f2)" # Hides credentials
-          env:
-            MONGODB_URI: ${{ secrets.MONGO_URI }}
-  
 
       - name: Install dependencies
         run: npm install
